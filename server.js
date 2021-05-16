@@ -23,7 +23,7 @@ io.on('connection',(socket)=>{
 		}
 		socket.join(user.roomid);
 		socket.emit('Welcome',messageUtils('Welcome new user','Chat-bot'));
-		socket.broadcast.to(user.roomid).emit('getMessage',messageUtils(`${user.username} has  joined`,'Chat-bot'));
+		socket.broadcast.to(user.roomid).emit('getMessage',messageUtils(`${user.username} has joined`,'Chat-bot'));
 		io.to(user.roomid).emit('getUsers',{
 			roomName : user.roomid,
 			users : getUsersInRoom({roomid:user.roomid})
